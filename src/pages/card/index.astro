@@ -1,6 +1,17 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import { contacts, profile } from '../../data/profile';
+import sharp from 'sharp';
+import { fileURLToPath } from 'node:url';
+
+const photoPath = fileURLToPath(new URL('../../../public/images/murilo.webp', import.meta.url));
+const photo = await sharp(photoPath)
+  .resize(512, 512, { fit: 'cover', position: 'attention' })
+  .jpeg({ quality: 82 })
+  .toBuffer();
+const photoLine = `PHOTO;ENCODING=b;TYPE=JPEG:${photo.toString('base64')}`
+  .match(/.{1,74}/g)
+  ?.join('\r\n ') ?? '';
 
 const vcard = [
   'BEGIN:VCARD',
@@ -10,17 +21,20 @@ const vcard = [
   `ORG:${profile.company}`,
   `TITLE:${profile.role}`,
   `EMAIL;TYPE=INTERNET:${profile.email}`,
+  `TEL;TYPE=CELL:${profile.phone}`,
   `URL:${profile.site}`,
   `X-SOCIALPROFILE;TYPE=linkedin:${profile.linkedin}`,
+  `X-SOCIALPROFILE;TYPE=instagram:${profile.instagram}`,
   `X-SOCIALPROFILE;TYPE=github:${profile.github}`,
+  photoLine,
   'END:VCARD'
 ].join('\r\n');
 ---
 
-<MainLayout title="Murilo Lopes — Contact" description={`Contact card for ${profile.name}, ${profile.role}.`} hideChrome>
+<MainLayout title="Murilo Luz — Contact" description={`Contact card for ${profile.name}, ${profile.role}.`} hideChrome>
   <section class="profile-card">
     <div class="profile-image">
-      <img src={profile.image} width="640" height="800" alt="Murilo Lopes" fetchpriority="high" />
+      <img src={profile.image} width="640" height="800" alt={profile.name} fetchpriority="high" />
     </div>
     <div class="profile-content">
       <a href="/" aria-label="Back to home"><img class="brand-mark" src="/icons/szero-mark.svg" width="48" height="48" alt="" /></a>
@@ -29,7 +43,7 @@ const vcard = [
       <p class="lead">{profile.shortIntro}</p>
       <ul class="profile-links">
         {contacts.map((contact) => (
-          <li><a href={contact.href} target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}><span>{contact.label}</span><span aria-hidden="true">↗</span></a></li>
+          <li><a href={contact.href} target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}><span class="profile-link-copy"><span class="label">{contact.label}</span><span class="value">{contact.value}</span></span><span aria-hidden="true">↗</span></a></li>
         ))}
       </ul>
       <div class="profile-actions">
@@ -46,7 +60,7 @@ const vcard = [
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'murilo-lopes.vcf';
+      link.download = 'murilo-luz.vcf';
       link.click();
       URL.revokeObjectURL(url);
     });

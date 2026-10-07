@@ -92,6 +92,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-
 .profile-content .lead { color: #b9b9b2; }
 .profile-links { margin: 2rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--dark-line); }
 .profile-links a { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--dark-line); text-decoration: none; }
+.profile-link-copy { display: grid; gap: .2rem; padding-block: .65rem; }
+.profile-link-copy .value { color: #b9b9b2; font-size: .9rem; overflow-wrap: anywhere; }
 .profile-links a:hover { color: var(--lime); }
 .profile-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 .profile-actions .button { border-color: var(--white); }

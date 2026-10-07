@@ -1,4 +1,4 @@
-# Murilo Lopes — personal site
+# Murilo Luz — personal site
 
 Static personal site for **[murilo.szero.io](https://murilo.szero.io)**, built with Astro and deployed to GitHub Pages.
 

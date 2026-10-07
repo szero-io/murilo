@@ -21,7 +21,7 @@ export const profile = {
 } as const;
 
 export const contacts = [
-  { label: 'LinkedIn', value: 'linkedin.com/in/murilo-lopes-da-luz-b3749728', href: profile.linkedin },
+  { label: 'LinkedIn', value: 'Perfil no LinkedIn', href: profile.linkedin },
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
   { label: 'Phone', value: profile.phoneDisplay, href: `tel:${profile.phone}` },
   { label: 'Instagram', value: '@murilolopesluz', href: profile.instagram },

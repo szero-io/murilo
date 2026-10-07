@@ -7,6 +7,15 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   integrations: [sitemap()],
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: '_astro/site[extname]'
+        }
+      }
+    }
+  },
   build: {
     format: 'directory'
   }

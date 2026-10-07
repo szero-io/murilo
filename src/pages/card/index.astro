@@ -25,10 +25,14 @@ const vcard = [
   `item2.EMAIL;TYPE=INTERNET:${profile.emailCeia}`,
   'item2.X-ABLabel:CEIA',
   `TEL;TYPE=CELL:${profile.phone}`,
-  `URL:${profile.site}`,
-  `X-SOCIALPROFILE;TYPE=linkedin:${profile.linkedin}`,
-  `X-SOCIALPROFILE;TYPE=instagram:${profile.instagram}`,
-  `X-SOCIALPROFILE;TYPE=github:${profile.github}`,
+  `item3.URL:${profile.site}`,
+  'item3.X-ABLabel:Site',
+  `item4.URL:${profile.linkedin}`,
+  'item4.X-ABLabel:LinkedIn',
+  `item5.URL:${profile.instagram}`,
+  'item5.X-ABLabel:Instagram',
+  `item6.URL:${profile.github}`,
+  'item6.X-ABLabel:GitHub',
   photoLine,
   'END:VCARD'
 ].join('\r\n');

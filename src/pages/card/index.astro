@@ -1,0 +1,54 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { contacts, profile } from '../../data/profile';
+
+const vcard = [
+  'BEGIN:VCARD',
+  'VERSION:3.0',
+  `N:${profile.familyName};${profile.givenName};;;`,
+  `FN:${profile.name}`,
+  `ORG:${profile.company}`,
+  `TITLE:${profile.role}`,
+  `EMAIL;TYPE=INTERNET:${profile.email}`,
+  `URL:${profile.site}`,
+  `X-SOCIALPROFILE;TYPE=linkedin:${profile.linkedin}`,
+  `X-SOCIALPROFILE;TYPE=github:${profile.github}`,
+  'END:VCARD'
+].join('\r\n');
+---
+
+<MainLayout title="Murilo Lopes — Contact" description={`Contact card for ${profile.name}, ${profile.role}.`} hideChrome>
+  <section class="profile-card">
+    <div class="profile-image">
+      <img src={profile.image} width="640" height="800" alt="Murilo Lopes" fetchpriority="high" />
+    </div>
+    <div class="profile-content">
+      <a href="/" aria-label="Back to home"><img class="brand-mark" src="/icons/szero-mark.svg" width="48" height="48" alt="" /></a>
+      <h1>{profile.name}</h1>
+      <p class="profile-role">{profile.role}</p>
+      <p class="lead">{profile.shortIntro}</p>
+      <ul class="profile-links">
+        {contacts.map((contact) => (
+          <li><a href={contact.href} target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}><span>{contact.label}</span><span aria-hidden="true">↗</span></a></li>
+        ))}
+      </ul>
+      <div class="profile-actions">
+        <button class="button" id="save-contact" type="button" data-vcard={encodeURIComponent(vcard)}>Save contact</button>
+        <a class="button secondary" href="/">Full profile</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    const button = document.querySelector<HTMLButtonElement>('#save-contact');
+    button?.addEventListener('click', () => {
+      const content = decodeURIComponent(button.dataset.vcard ?? '');
+      const blob = new Blob([content], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'murilo-lopes.vcf';
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</MainLayout>

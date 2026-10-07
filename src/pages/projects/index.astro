@@ -1,0 +1,20 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ProjectItem from '../../components/ProjectItem.astro';
+import { projects } from '../../data/projects';
+---
+
+<MainLayout title="Projects — Murilo Lopes" description="Selected software architecture, interoperability and applied AI projects by Murilo Lopes.">
+  <header class="page-intro">
+    <div class="shell">
+      <p class="kicker">Projects / Selected work</p>
+      <h1>Software that connects intent to evidence.</h1>
+      <p class="lead">Systems, tools and educational work across applied AI, health interoperability and technical operations.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="shell grid">
+      {projects.map((project, index) => <ProjectItem project={project} index={index} />)}
+    </div>
+  </section>
+</MainLayout>

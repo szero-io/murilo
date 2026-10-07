@@ -1,0 +1,15 @@
+---
+import { contacts } from '../data/profile';
+---
+
+<ul class="contact-list">
+  {contacts.map((contact) => (
+    <li>
+      <a href={contact.href} target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+        <span class="label">{contact.label}</span>
+        <span class="value">{contact.value}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </li>
+  ))}
+</ul>

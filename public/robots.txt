@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://murilo.szero.io/sitemap-index.xml

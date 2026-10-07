@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('/fonts/source-serif-4-roman.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('/fonts/source-sans-3-upright.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+h1,
+h2,
+.display {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(3.25rem, 9vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+}
+
+h2 {
+  font-size: clamp(2.25rem, 5vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.kicker,
+.label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

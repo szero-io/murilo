@@ -1,0 +1,13 @@
+:root {
+  --ink: #0b0c0a;
+  --paper: #f2f0e9;
+  --white: #faf9f4;
+  --muted: #6a6861;
+  --line: #d2cfc5;
+  --dark-line: #33342f;
+  --lime: #d7ff18;
+  --max: 1440px;
+  --pad: clamp(1.25rem, 4vw, 4rem);
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans: 'Source Sans 3', Arial, Helvetica, sans-serif;
+}

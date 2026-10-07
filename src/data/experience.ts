@@ -1,14 +1,20 @@
 export const experience = [
   {
-    organization: 'CEIA',
-    role: 'Head de TI',
+    organization: 'CEIA / Federal University of Goiás',
+    role: 'Head of IT',
     summary:
-      'Leading technology strategy, software architecture and engineering for applied artificial intelligence initiatives.'
+      'Leading technology strategy, software architecture, computing infrastructure, and technical initiatives that support research and innovation.'
   },
   {
     organization: 'Szero',
     role: 'Founder',
     summary:
-      'Building intelligence systems around decisions: framing, methods, software, evaluation and learning loops.'
+      'Exploring technology, developing digital products, and transforming ideas into practical solutions.'
+  },
+  {
+    organization: 'Software Factory / UFG',
+    role: 'Software Architecture & Technical Leadership',
+    summary:
+      'Working across software architecture, systems development, technical mentorship, and engineering practices for real-world applications.'
   }
 ] as const;

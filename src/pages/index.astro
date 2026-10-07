@@ -1,46 +1,78 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import ContactList from '../components/ContactList.astro';
-import { profile } from '../data/profile';
+import { profile, primaryContacts } from '../data/profile';
 import { experience } from '../data/experience';
+import { capabilities, publications, researchInterests, selectedWork } from '../data/content';
 ---
 
-<MainLayout title="Murilo Luz — Head de TI do CEIA & Founder da Szero" description={profile.intro}>
+<MainLayout
+  title="Murilo Luz — Computer Scientist, Technology Leader & Software Architect"
+  description="Murilo Luz is a Computer Scientist, technology leader, and software architect working across software, infrastructure, and applied research."
+>
   <section class="hero">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="kicker">Head de TI do CEIA · Founder da Szero</p>
-        <h1>Technology with direction.</h1>
+        <p class="kicker">Computer Scientist · Technology Leader · Software Architect</p>
+        <h1>Building technology that makes a difference.</h1>
         <p class="lead">{profile.intro}</p>
         <div class="hero-actions">
-          <a class="button" href="/card/">Contact me</a>
-          <a class="button secondary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="button" href="#work">Explore My Work</a>
+          <a class="button secondary" href="#contact">Get in Touch</a>
         </div>
       </div>
       <figure class="hero-portrait">
         <img src={profile.image} width="640" height="800" alt={profile.name} fetchpriority="high" />
-        <figcaption><span>{profile.name}</span><span>CEIA · Szero</span></figcaption>
+        <figcaption><span>{profile.name}</span><span>Goiás · Brazil</span></figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="contact-title">
+  <section class="section" id="about" aria-labelledby="about-title">
     <div class="shell">
       <div class="section-head">
-        <p class="kicker">Contact</p>
-        <div><h2 id="contact-title">Let’s start a conversation.</h2><p class="lead">The fastest path is LinkedIn. For Szero work, email is open too.</p></div>
+        <p class="kicker">About</p>
+        <div><h2 id="about-title">Curious by nature.<br />Driven by technology.</h2></div>
       </div>
-      <ContactList />
+      <div class="prose-columns">
+        <div class="prose-lead">
+          <p>I’m Murilo Luz, a Computer Scientist with a Master’s degree in Computer Science from the Federal University of Goiás (UFG), Brazil.</p>
+          <p>My career combines software architecture, technical leadership, systems development, computing infrastructure, and applied research.</p>
+        </div>
+        <div class="prose-body">
+          <p>I enjoy understanding complex problems, exploring possibilities, designing solutions, and building systems that make a difference.</p>
+          <p>As Head of IT at CEIA/UFG, I lead technology initiatives that support research, innovation, and real-world applications. I’m also the founder of Szero, where I explore ideas, develop digital products, and work on technology-driven initiatives.</p>
+          <p>I believe great technology comes from thoughtful decisions, capable teams, continuous learning, and a clear understanding of the problems we’re trying to solve.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section dark" aria-labelledby="experience-title">
+  <section class="section dark" id="capabilities" aria-labelledby="capabilities-title">
     <div class="shell">
       <div class="section-head">
-        <p class="kicker">Leadership</p>
-        <div><h2 id="experience-title">Where I am building now.</h2></div>
+        <p class="kicker">What I Do</p>
+        <div><h2 id="capabilities-title">Connecting ideas, people, and technology.</h2></div>
       </div>
       <div class="grid">
+        {capabilities.map((item, index) => (
+          <article class="card">
+            <span class="index label">{String(index + 1).padStart(2, '0')}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="shell">
+      <div class="section-head">
+        <p class="kicker">Experience</p>
+        <div><h2 id="experience-title">Where ideas become real systems.</h2></div>
+      </div>
+      <div class="grid experience-grid">
         {experience.map((item, index) => (
           <article class="card">
             <span class="index label">{String(index + 1).padStart(2, '0')}</span>
@@ -50,6 +82,94 @@ import { experience } from '../data/experience';
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section research-section" id="research" aria-labelledby="research-title">
+    <div class="shell">
+      <div class="section-head">
+        <p class="kicker">Research & Publications</p>
+        <div><h2 id="research-title">Exploring ideas beyond implementation.</h2></div>
+      </div>
+      <div class="prose-columns research-intro">
+        <div class="prose-lead">
+          <p>I hold a Master’s degree in Computer Science from the Federal University of Goiás.</p>
+          <p>My research explores reasoning strategies for large language models, including uncertainty-guided approaches to computational efficiency.</p>
+        </div>
+        <div class="prose-body">
+          <p>My academic and technical contributions also involve software engineering education, healthcare interoperability, information security, and applied computing.</p>
+          <p class="label">Research interests</p>
+          <ul class="tags interest-list">
+            {researchInterests.map((interest) => <li>{interest}</li>)}
+          </ul>
+        </div>
+      </div>
+      <div class="publication-list" aria-label="Selected publications">
+        {publications.map((publication) => (
+          <a href={publication.href} target="_blank" rel="noopener noreferrer">
+            <span>
+              <span class="label">{publication.detail}</span>
+              <strong>{publication.title}</strong>
+            </span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="work" aria-labelledby="work-title">
+    <div class="shell">
+      <div class="section-head">
+        <p class="kicker">Selected Work</p>
+        <div><h2 id="work-title">A few things I’ve worked on.</h2></div>
+      </div>
+      <div class="work-list">
+        {selectedWork.map((item, index) => (
+          <article class="work-item">
+            <span class="index label">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <p class="label">{item.category}</p>
+              <h3>{item.title}</h3>
+            </div>
+            <div>
+              <p>{item.description}</p>
+              {item.href && item.linkLabel && (
+                <a class="text-link" href={item.href} target="_blank" rel="noopener noreferrer">{item.linkLabel} <span aria-hidden="true">↗</span></a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="philosophy" aria-labelledby="philosophy-title">
+    <div class="shell philosophy-grid">
+      <p class="kicker">Philosophy</p>
+      <div>
+        <h2 id="philosophy-title">Technology is about more than code.</h2>
+        <div class="philosophy-copy">
+          <p>I believe meaningful technology starts with understanding the problem, not choosing the tools.</p>
+          <p>Good systems require thoughtful decisions, collaboration, continuous learning, and a balance between technical excellence and practical needs.</p>
+          <p>I value simplicity where possible, depth where necessary, and solutions that remain useful beyond their first release.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="shell">
+      <div class="section-head">
+        <p class="kicker">Contact</p>
+        <div>
+          <h2 id="contact-title">Have an idea worth building?</h2>
+          <p class="lead">I’m always open to conversations about technology, software architecture, research, and interesting challenges.</p>
+          <p>Whether it’s exchanging ideas, exploring a collaboration, or discussing a complex technical problem, feel free to get in touch.</p>
+        </div>
+      </div>
+      <ContactList items={primaryContacts} />
+      <a class="text-link contact-card-link" href="/card/">Open contact card <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </MainLayout>

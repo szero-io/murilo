@@ -1,9 +1,11 @@
 ---
 import { contacts } from '../data/profile';
+
+const { items = contacts } = Astro.props;
 ---
 
 <ul class="contact-list">
-  {contacts.map((contact) => (
+  {items.map((contact: (typeof contacts)[number]) => (
     <li>
       <a href={contact.href} target={contact.href.startsWith('http') ? '_blank' : undefined} rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
         <span class="label">{contact.label}</span>

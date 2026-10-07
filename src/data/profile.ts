@@ -2,13 +2,13 @@ export const profile = {
   name: 'Murilo Luz',
   givenName: 'Murilo',
   familyName: 'Luz',
-  role: 'Head de TI do CEIA · Founder da Szero',
+  role: 'Computer Scientist · Technology Leader · Software Architect',
   company: 'CEIA · Szero',
   location: 'Brazil',
   intro:
-    'Head de TI do CEIA and Founder da Szero, leading technology, software architecture and applied AI initiatives.',
+    'I work at the intersection of software, research, and technology, turning complex challenges into practical, reliable, and meaningful solutions.',
   shortIntro:
-    'Technology leadership, software architecture and applied AI built from first principles.',
+    'Computer Scientist, technology leader, and software architect building technology that makes a difference.',
   image: '/images/murilo.webp',
   emailSzero: 'murilo@szero.io',
   emailCeia: 'murilo@ceia.ufg.br',
@@ -22,11 +22,17 @@ export const profile = {
 } as const;
 
 export const contacts = [
-  { label: 'LinkedIn', value: 'Perfil no LinkedIn', href: profile.linkedin },
+  { label: 'LinkedIn', value: 'Professional profile', href: profile.linkedin },
   { label: 'Email · Szero', value: profile.emailSzero, href: `mailto:${profile.emailSzero}` },
   { label: 'Email · CEIA', value: profile.emailCeia, href: `mailto:${profile.emailCeia}` },
   { label: 'Phone', value: profile.phoneDisplay, href: `tel:${profile.phone}` },
   { label: 'Instagram', value: '@murilolopesluz', href: profile.instagram },
   { label: 'Szero', value: 'szero.io', href: profile.szero },
   { label: 'GitHub', value: '@muriloluz', href: profile.github }
+] as const;
+
+export const primaryContacts = [
+  { label: 'Email', value: profile.emailSzero, href: `mailto:${profile.emailSzero}` },
+  { label: 'GitHub', value: '@muriloluz', href: profile.github },
+  { label: 'LinkedIn', value: 'Professional profile', href: profile.linkedin }
 ] as const;

@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import globalCss from '../styles/global.css?inline';
+import { profile } from '../data/profile';
 
 interface Props {
   title: string;
@@ -13,6 +14,29 @@ interface Props {
 const { title, description, image = '/images/murilo.webp', hideChrome = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  url: profile.site,
+  image: socialImage.href,
+  jobTitle: 'Head of IT',
+  description,
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Federal University of Goiás'
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'CEIA / Federal University of Goiás'
+  },
+  affiliation: {
+    '@type': 'Organization',
+    name: 'Szero',
+    url: profile.szero
+  },
+  sameAs: [profile.linkedin, profile.github, profile.instagram]
+};
 ---
 
 <!doctype html>
@@ -29,8 +53,14 @@ const socialImage = new URL(image, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={`Portrait of ${profile.name}`} />
+    <meta property="og:site_name" content="Murilo Luz" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
     <style is:inline set:html={globalCss}></style>
   </head>
   <body>

@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import globalCss from '../styles/global.css?raw';
 
 interface Props {
   title: string;
@@ -31,6 +31,7 @@ const socialImage = new URL(image, Astro.site);
     <meta property="og:image" content={socialImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+    <style is:inline set:html={globalCss}></style>
   </head>
   <body>
     {!hideChrome && <Header />}

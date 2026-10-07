@@ -27,8 +27,6 @@ The generated site is written to `dist/` as static files only. Key routes become
 ```text
 dist/index.html
 dist/card/index.html
-dist/projects/index.html
-dist/research/index.html
 dist/404.html
 ```
 
@@ -37,7 +35,7 @@ dist/404.html
 ```text
 src/
   components/   Reusable Astro components
-  data/         Profile, projects, publications and experience
+  data/         Profile and experience
   layouts/      Shared document layout and metadata
   pages/        Physical static routes
   styles/       Szero-aligned design tokens and global styles
@@ -51,23 +49,6 @@ public/
 ## Change personal data
 
 Edit `src/data/profile.ts`. Contact links and the browser-generated vCard use the same data source.
-
-## Add a project
-
-Add an object to `src/data/projects.ts` with `title`, `description`, `tags` and `href`.
-
-## Add a publication
-
-Add an object to the `publications` array in `src/data/publications.ts`:
-
-```ts
-{
-  title: 'Paper title',
-  venue: 'Venue or journal',
-  year: '2026',
-  href: 'https://doi.org/...'
-}
-```
 
 ## GitHub Pages deployment
 

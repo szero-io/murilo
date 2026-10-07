@@ -42,9 +42,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-
 .button:hover { background: var(--lime); color: var(--ink); }
 .button.secondary { background: transparent; color: var(--ink); }
 
-.hero { min-height: calc(100svh - 74px); display: grid; align-items: end; border-bottom: 1px solid var(--line); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); align-items: end; gap: clamp(2rem, 7vw, 8rem); padding-block: clamp(4rem, 8vw, 8rem) 2rem; }
-.hero .kicker { margin-bottom: clamp(2rem, 6vw, 5rem); }
+.hero { border-bottom: 1px solid var(--line); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); align-items: center; gap: clamp(2rem, 7vw, 8rem); padding-block: clamp(3rem, 6vw, 6rem); }
+.hero .kicker { margin-bottom: 1.5rem; }
 .hero h1 { max-width: 980px; margin-bottom: 1.5rem; }
 .hero-copy .lead { max-width: 650px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }

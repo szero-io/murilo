@@ -12,7 +12,7 @@ export const profile = {
   image: '/images/murilo.webp',
   email: 'murilo@ceia.ufg.br',
   phone: '+5562982588782',
-  phoneDisplay: '(62) 98258-8782',
+  phoneDisplay: '+55 62 98258-8782',
   github: 'https://github.com/muriloluz',
   linkedin: 'https://www.linkedin.com/in/murilo-lopes-da-luz-b3749728/',
   instagram: 'https://www.instagram.com/murilolopesluz/',

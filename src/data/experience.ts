@@ -1,14 +1,14 @@
 export const experience = [
   {
-    organization: 'Szero',
-    role: 'Founder · Software Architect & AI Researcher',
+    organization: 'CEIA',
+    role: 'Head de TI',
     summary:
-      'Building intelligence systems around decisions: framing, methods, software, evaluation and learning loops.'
+      'Leading technology strategy, software architecture and engineering for applied artificial intelligence initiatives.'
   },
   {
-    organization: 'UFG',
-    role: 'Research & Engineering',
+    organization: 'Szero',
+    role: 'Founder',
     summary:
-      'Work at the intersection of software systems, applied artificial intelligence and health interoperability.'
+      'Building intelligence systems around decisions: framing, methods, software, evaluation and learning loops.'
   }
 ] as const;

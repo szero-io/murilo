@@ -2,13 +2,13 @@ export const profile = {
   name: 'Murilo Lopes',
   givenName: 'Murilo',
   familyName: 'Lopes da Luz',
-  role: 'Software Architect & AI Researcher',
-  company: 'Szero',
+  role: 'Head de TI do CEIA · Founder da Szero',
+  company: 'CEIA · Szero',
   location: 'Brazil',
   intro:
-    'I design software and intelligence systems for complex decisions, interoperable health and applied research.',
+    'Head de TI do CEIA and Founder da Szero, leading technology, software architecture and applied AI initiatives.',
   shortIntro:
-    'Software architecture, applied AI and research systems built from first principles.',
+    'Technology leadership, software architecture and applied AI built from first principles.',
   image: '/images/murilo.webp',
   email: 'hello@szero.io',
   github: 'https://github.com/muriloluz',
@@ -18,8 +18,8 @@ export const profile = {
 } as const;
 
 export const contacts = [
+  { label: 'LinkedIn', value: 'linkedin.com/in/murilo-lopes-da-luz-b3749728', href: profile.linkedin },
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-  { label: 'LinkedIn', value: 'murilo-lopes-da-luz', href: profile.linkedin },
-  { label: 'GitHub', value: '@muriloluz', href: profile.github },
-  { label: 'Szero', value: 'szero.io', href: profile.szero }
+  { label: 'Szero', value: 'szero.io', href: profile.szero },
+  { label: 'GitHub', value: '@muriloluz', href: profile.github }
 ] as const;

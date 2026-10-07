@@ -1,48 +1,44 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import ProjectItem from '../components/ProjectItem.astro';
 import ContactList from '../components/ContactList.astro';
 import { profile } from '../data/profile';
-import { projects } from '../data/projects';
 import { experience } from '../data/experience';
 ---
 
-<MainLayout title="Murilo Lopes — Software Architect & AI Researcher" description={profile.intro}>
+<MainLayout title="Murilo Lopes — Head de TI do CEIA & Founder da Szero" description={profile.intro}>
   <section class="hero">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="kicker">Software architect · AI researcher</p>
-        <h1>Systems for decisions that matter.</h1>
+        <p class="kicker">Head de TI do CEIA · Founder da Szero</p>
+        <h1>Technology with direction.</h1>
         <p class="lead">{profile.intro}</p>
         <div class="hero-actions">
-          <a class="button" href="/projects/">Explore projects</a>
-          <a class="button secondary" href="/card/">Contact card</a>
+          <a class="button" href="/card/">Contact me</a>
+          <a class="button secondary" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
       <figure class="hero-portrait">
         <img src={profile.image} width="640" height="800" alt="Murilo Lopes" fetchpriority="high" />
-        <figcaption><span>Murilo Lopes</span><span>Szero / Brazil</span></figcaption>
+        <figcaption><span>Murilo Lopes</span><span>CEIA · Szero</span></figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="work-title">
+  <section class="section" aria-labelledby="contact-title">
     <div class="shell">
       <div class="section-head">
-        <p class="kicker">Selected work</p>
-        <div><h2 id="work-title">Architecture becomes useful when it changes the outcome.</h2></div>
+        <p class="kicker">Contact</p>
+        <div><h2 id="contact-title">Let’s start a conversation.</h2><p class="lead">The fastest path is LinkedIn. For Szero work, email is open too.</p></div>
       </div>
-      <div class="grid">
-        {projects.slice(0, 4).map((project, index) => <ProjectItem project={project} index={index} />)}
-      </div>
+      <ContactList />
     </div>
   </section>
 
   <section class="section dark" aria-labelledby="experience-title">
     <div class="shell">
       <div class="section-head">
-        <p class="kicker">Experience</p>
-        <div><h2 id="experience-title">From blank state to a system that learns.</h2></div>
+        <p class="kicker">Leadership</p>
+        <div><h2 id="experience-title">Where I am building now.</h2></div>
       </div>
       <div class="grid">
         {experience.map((item, index) => (
@@ -54,16 +50,6 @@ import { experience } from '../data/experience';
           </article>
         ))}
       </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="contact-title">
-    <div class="shell">
-      <div class="section-head">
-        <p class="kicker">Contact</p>
-        <div><h2 id="contact-title">Bring the difficult problem.</h2><p class="lead">Start with the constraint, the evidence and the outcome worth improving.</p></div>
-      </div>
-      <ContactList />
     </div>
   </section>
 </MainLayout>

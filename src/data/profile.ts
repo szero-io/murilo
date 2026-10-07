@@ -10,7 +10,8 @@ export const profile = {
   shortIntro:
     'Technology leadership, software architecture and applied AI built from first principles.',
   image: '/images/murilo.webp',
-  email: 'murilo@ceia.ufg.br',
+  emailSzero: 'murilo@szero.io',
+  emailCeia: 'murilo@ceia.ufg.br',
   phone: '+5562982588782',
   phoneDisplay: '+55 62 98258-8782',
   github: 'https://github.com/muriloluz',
@@ -22,7 +23,8 @@ export const profile = {
 
 export const contacts = [
   { label: 'LinkedIn', value: 'Perfil no LinkedIn', href: profile.linkedin },
-  { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
+  { label: 'Email · Szero', value: profile.emailSzero, href: `mailto:${profile.emailSzero}` },
+  { label: 'Email · CEIA', value: profile.emailCeia, href: `mailto:${profile.emailCeia}` },
   { label: 'Phone', value: profile.phoneDisplay, href: `tel:${profile.phone}` },
   { label: 'Instagram', value: '@murilolopesluz', href: profile.instagram },
   { label: 'Szero', value: 'szero.io', href: profile.szero },

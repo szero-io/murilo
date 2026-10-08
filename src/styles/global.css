@@ -77,7 +77,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-
 
 .research-section { background: var(--white); }
 .research-intro { margin-bottom: clamp(3rem, 7vw, 6rem); }
-.research-profile-link { margin: 0 0 1.5rem; color: var(--ink); }
+.research-profile-link { margin: 0 0 1.5rem; }
 .interest-list { max-width: 660px; }
 .publication-list { border-top: 1px solid var(--line); }
 .publication-list a { min-height: 108px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1.25rem; border-bottom: 1px solid var(--line); text-decoration: none; }
@@ -92,6 +92,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-
 .work-item .label { color: #aaa89f; }
 .text-link { display: inline-flex; gap: .5rem; margin-top: .5rem; color: var(--lime); font-size: .78rem; font-weight: 700; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; }
 .text-link:hover { text-decoration: underline; text-underline-offset: .35em; }
+.text-link.research-profile-link { color: var(--ink); }
 .contact-card-link { margin-top: 1.5rem; color: var(--ink); }
 
 .philosophy-grid { display: grid; grid-template-columns: minmax(130px, .35fr) minmax(0, 1.65fr); gap: 2rem; }

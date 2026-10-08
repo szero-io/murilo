@@ -77,6 +77,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-
 
 .research-section { background: var(--white); }
 .research-intro { margin-bottom: clamp(3rem, 7vw, 6rem); }
+.research-profile-link { margin: 0 0 1.5rem; color: var(--ink); }
 .interest-list { max-width: 660px; }
 .publication-list { border-top: 1px solid var(--line); }
 .publication-list a { min-height: 108px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1.25rem; border-bottom: 1px solid var(--line); text-decoration: none; }

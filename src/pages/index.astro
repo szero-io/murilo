@@ -104,6 +104,7 @@ import { capabilities, publications, researchInterests, selectedWork } from '../
           </ul>
         </div>
       </div>
+      <a class="text-link research-profile-link" href={profile.scholar} target="_blank" rel="noopener noreferrer">View Google Scholar profile <span aria-hidden="true">↗</span></a>
       <div class="publication-list" aria-label="Selected publications">
         {publications.map((publication) => (
           <a href={publication.href} target="_blank" rel="noopener noreferrer">

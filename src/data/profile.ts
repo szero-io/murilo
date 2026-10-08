@@ -15,6 +15,7 @@ export const profile = {
   phone: '+5562982588782',
   phoneDisplay: '+55 62 98258-8782',
   github: 'https://github.com/muriloluz',
+  scholar: 'https://scholar.google.com/citations?user=7XlZS0gAAAAJ&hl=en',
   linkedin: 'https://www.linkedin.com/in/murilo-lopes-da-luz-b3749728/',
   instagram: 'https://www.instagram.com/murilolopesluz/',
   szero: 'https://szero.io',
